@@ -19,7 +19,13 @@ describe('testing basic functions', function(){
     });
 
     it('the result should be 4.0', function(){
-        expect(returnGradePoint("A").toBe(4.0));
+        expect(returnGradePoint("A")).toBe(4.0);
     });
+
+    it('the result should be 2.0', function(){
+        expect(returnGradePoint("C")).toBe(2.0);
+    });
+
+
 });
 
