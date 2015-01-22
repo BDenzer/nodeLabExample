@@ -4,4 +4,8 @@ exports.stringLength = function(str){
     return str.length;
 };
 
+exports.pageName = function(str){
+    return str;
+}
+
 
