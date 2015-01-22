@@ -6,6 +6,10 @@ exports.stringLength = function(str){
 
 exports.pageName = function(str){
     return str;
-}
+};
+
+exports.returnAverage = function(number1, number2, number3){
+    return (number1+number2+number3)/3;
+};
 
 

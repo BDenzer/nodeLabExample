@@ -13,5 +13,13 @@ describe('testing basic functions', function(){
     it('this test should fail!', function(){
         expect(returnKittens()).toBe("Not Kittens!");
     });
+
+    it('the result should be 2', function(){
+        expect(returnAverage(2,2,2)).toBe(2);
+    });
+
+    it('the result should be 4.0', function(){
+        expect(returnGradePoint("A").toBe(4.0));
+    });
 });
 

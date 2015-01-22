@@ -28,4 +28,13 @@ var testStringLength = function(str){
 var returnKittens = function(){
     return "kittens";
 };
+/**
+ * @param number1,number2,number3 - the integers to take the average of
+ * @returns (number) - returns the average of the three numbers
+ */
+
+
+var returnAverage = function(number1, number2, number3){
+    return (number1+number2+number3)/3;
+};
 
