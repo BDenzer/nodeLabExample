@@ -37,7 +37,11 @@ var returnKittens = function(){
 var returnAverage = function(number1, number2, number3){
     return (number1+number2+number3)/3;
 };
-
+/**
+ *
+ * @param str -The letter grade to change to grade point value
+ * @returns {number} - returns the grade point value
+ */
 var returnGradePoint = function(str) {
     switch (str) {
         case "A":
