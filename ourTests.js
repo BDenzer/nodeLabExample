@@ -1,18 +1,29 @@
-// Javascript for the SERVER side.
+/**
+ * Created by denz0045 on 1/26/15.
+ */
+/**
+ * @param number1,number2,number3 - the integers to take the average of
+ * @returns (number) - returns the average of the three numbers
+ */
 
-exports.stringLength = function(str){
-    return str.length;
-};
 
-exports.pageName = function(str){
+
+/**
+ *
+ * @param str -The letter grade to change to grade point value
+ * @returns {number} - returns the grade point value
+ */
+
+
+var pageName = function(str){
     return str;
 };
 
-exports.returnAverage = function(number1, number2, number3, totalCredits){
+var returnAverage = function(number1, number2, number3, totalCredits){
     return (number1+number2+number3)/totalCredits;
 };
 
-exports.returnGradeValue = function(str){
+var returnGradeValue = function(str){
     if (str === "A") {
         return 4.0;
     } else if (str === "B") {
@@ -28,14 +39,13 @@ exports.returnGradeValue = function(str){
     }
 };
 
-exports.returnGradePoint = function(credits, letter){
+var returnGradePoint = function(credits, letter){
     return returnGradeValue(letter) * credits;
 };
 
-exports.returnGPA = function(grade1, grade2, grade3){
+var returnGPA = function(grade1, grade2, grade3){
     var weightedGrade1= returnGradePoint(grade1);
     var weightedGrade2= returnGradePoint(grade2);
     var weightedGrade3= returnGradePoint(grade3);
     return returnAverage(weightedGrade1,weightedGrade2,weightedGrade3);
 };
-
