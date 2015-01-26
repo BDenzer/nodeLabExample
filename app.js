@@ -62,7 +62,7 @@ app.get('/gpaCalculator', function(req, res){
 
 app.post('/gpaCalculator', function(req, res){
     var totalCredits = req.body.credits1 + req.body.credits2 + req.body.credits3;
-    res.send("Your GPA is: " + tools.returnGPA(req.body.grade1, req.body.grade2, req.body.grade3, totalCredits));
+    res.send("Your GPA is: " + tools.returnGPA(req.body.grade1, req.body.grade2, req.body.grade3, req.body.credits1 totalCredits));
 });
 
 
