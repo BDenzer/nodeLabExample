@@ -13,33 +13,29 @@ exports.returnAverage = function(number1, number2, number3, totalCredits){
 };
 
 exports.returnGradeValue = function(str){
-    switch(str) {
-        case "A":
-            return 4.0;
-            break;
-        case "B":
-            return 3.0;
-            break;
-        case "C":
-            return 2.0;
-            break;
-        case "D":
-            return 1.0;
-            break;
-        case "F":
-            return 0;
-            break;
+    if (str === "A") {
+        return 4.0;
+    } else if (str === "B") {
+        return 3.0;
+    } else if (str === "C") {
+        return 2.0;
+    } else if (str === "D") {
+        return 1.0;
+    } else if (str === "F") {
+        return 0;
+    } else {
+        return 0;
     }
 };
 
-exports.returnGradePoint = function(credits, letter){
-    return returnGradeValue(letter) * credits;
-};
 
-exports.returnGPA = function(grade1, grade2, grade3){
-    weightedGrade1= returnGradePoint(grade1);
-    weightedGrade2= returnGradePoint(grade2);
-    weightedGrade3= returnGradePoint(grade3);
-    return returnAverage(grade1,grade2,grade3);
+exports.returnGPA = function(grade1, grade2, grade3, credits1, credits2, credits3, totalCredits){
+    var gradeValue1 = returnGradeValue(grade1);
+    var gradeValue2 = returnGradeValue(grade2);
+    var gradeValue3 = returnGradeValue(grade3);
+    var weightedGrade1= gradeValue1*credits1;
+    var weightedGrade2= gradeValue2*credits2;
+    var weightedGrade3= gradeValue3*credits3;
+    return returnAverage(weightedGrade1,weightedGrade2,weightedGrade3, totalCredits);
 };
 
