@@ -16,7 +16,6 @@ var options = {
     dotfiles: 'deny'
 };
 
-
 // make the "public" directory available to the client
 app.use(express.static(__dirname + '/public'));
 
@@ -69,7 +68,7 @@ app.post('/gpaCalculator', function(req, res){
     var grade2 = tools.returnGradePoint(parseInt(req.body.credits2), tools.returnGradeValue(req.body.grade2));
     var grade3 = tools.returnGradePoint(parseInt(req.body.credits3), tools.returnGradeValue(req.body.grade3));
     //if statement added to ensure that the message will always contain a positive amount of credits
-    if(totalCredits > 0) res.send("Your GPA is: " + (tools.returnAverage(grade1, grade2, grade3, totalCredits)) + ".0");
+    if(totalCredits > 0) res.send("Your GPA is: " + (tools.returnAverage(grade1, grade2, grade3, totalCredits)));
 });
 
 
