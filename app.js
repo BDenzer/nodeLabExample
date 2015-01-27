@@ -62,14 +62,13 @@ app.get('/gpaCalculator', function(req, res){
 
 app.post('/gpaCalculator', function(req, res){
     //Had a problem of adding three credits together as a string rather than a number, so I added the parseInt() function
-    var credits1 = parseInt(req.body.credits1);
-    var credits2 = parseInt(req.body.credits2);
-    var credits3 = parseInt(req.body.credits3);
-    var totalCredits = credits1 + credits2 + credits3;
-    var grade1 = tools.returnGradePoint(credits1, tools.returnGradeValue(req.body.grade1));
-    var grade2 = tools.returnGradePoint(credits2, tools.returnGradeValue(req.body.grade2));
-    var grade3 = tools.returnGradePoint(credits3, tools.returnGradeValue(req.body.grade3));
-    if(totalCredits > 0 && totalCredits < 20) res.send("Your GPA is: " + (tools.returnAverage(grade1, grade2, grade3, totalCredits)) + ".0");
+    var totalCredits = parseInt(req.body.credits1) + parseInt(req.body.credits2) + parseInt(req.body.credits3);
+    //Each variable finds the gradeValue using server-side functionality and returns a gradePoint based off of the credits and grade earned
+    var grade1 = tools.returnGradePoint(parseInt(req.body.credits1), tools.returnGradeValue(req.body.grade1));
+    var grade2 = tools.returnGradePoint(parseInt(req.body.credits2), tools.returnGradeValue(req.body.grade2));
+    var grade3 = tools.returnGradePoint(parseInt(req.body.credits3), tools.returnGradeValue(req.body.grade3));
+    //if statement added to ensure that the message will always contain a positive amount of credits
+    if(totalCredits > 0) res.send("Your GPA is: " + (tools.returnAverage(grade1, grade2, grade3, totalCredits)) + ".0");
 });
 
 
