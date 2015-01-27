@@ -61,8 +61,17 @@ app.get('/gpaCalculator', function(req, res){
 });
 
 app.post('/gpaCalculator', function(req, res){
-    var totalCredits = req.body.credits1 + req.body.credits2 + req.body.credits3;
-    res.send("Your GPA is: " + tools.returnGPA(req.body.grade1, req.body.grade2, req.body.grade3, totalCredits));
+    //Had a problem of adding three credits together as a string rather than a number, so I added the parseInt() function
+    var credits1 = parseInt(req.body.credits1);
+    var credits2 = parseInt(req.body.credits2);
+    var credits3 = parseInt(req.body.credits3);
+    var totalCredits = credits1 + credits2 + credits3;
+    console.log("total credits are " + totalCredits);
+    var grade1 = parseInt(tools.returnGradePoint(credits1, tools.returnGradeValue(req.body.grade1)));
+    var grade2 = parseInt(tools.returnGradePoint(credits2, tools.returnGradeValue(req.body.grade2)));
+    var grade3 = parseInt(tools.returnGradePoint(credits3.credits3, tools.returnGradeValue(req.body.grade3)));
+    console.log("grade1 is " + grade1);
+    res.send("Your GPA is: " + (tools.returnAverage(grade1, grade2, grade3, totalCredits)));
 });
 
 

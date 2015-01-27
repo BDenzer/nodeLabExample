@@ -9,7 +9,9 @@ exports.pageName = function(str){
 };
 
 exports.returnAverage = function(number1, number2, number3, totalCredits){
+    console.log("total credits is " + totalCredits);
     return (number1+number2+number3)/totalCredits;
+
 };
 
 exports.returnGradeValue = function(str){
@@ -29,13 +31,8 @@ exports.returnGradeValue = function(str){
 };
 
 exports.returnGradePoint = function(credits, letter){
-    return returnGradeValue(letter) * credits;
+    return letter * credits;
 };
 
-exports.returnGPA = function(grade1, grade2, grade3){
-    var weightedGrade1= returnGradePoint(grade1);
-    var weightedGrade2= returnGradePoint(grade2);
-    var weightedGrade3= returnGradePoint(grade3);
-    return returnAverage(weightedGrade1,weightedGrade2,weightedGrade3);
-};
+
 

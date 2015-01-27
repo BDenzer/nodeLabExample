@@ -43,9 +43,6 @@ var returnGradePoint = function(credits, letter){
     return returnGradeValue(letter) * credits;
 };
 
-var returnGPA = function(grade1, grade2, grade3){
-    var weightedGrade1= returnGradePoint(grade1);
-    var weightedGrade2= returnGradePoint(grade2);
-    var weightedGrade3= returnGradePoint(grade3);
-    return returnAverage(weightedGrade1,weightedGrade2,weightedGrade3);
+var returnGPA = function(grade1, grade2, grade3, totalCredits){
+    return returnAverage(grade1, grade2, grade3, totalCredits);
 };
