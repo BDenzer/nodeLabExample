@@ -16,6 +16,7 @@ var options = {
     dotfiles: 'deny'
 };
 
+
 // make the "public" directory available to the client
 app.use(express.static(__dirname + '/public'));
 
