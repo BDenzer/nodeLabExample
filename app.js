@@ -69,7 +69,6 @@ app.post('/gpaCalculator', function(req, res){
     var grade1 = tools.returnGradePoint(credits1, tools.returnGradeValue(req.body.grade1));
     var grade2 = tools.returnGradePoint(credits2, tools.returnGradeValue(req.body.grade2));
     var grade3 = tools.returnGradePoint(credits3, tools.returnGradeValue(req.body.grade3));
-    console.log("grade1 is " + typeof(grade1));
     if(totalCredits > 0 && totalCredits < 20) res.send("Your GPA is: " + (tools.returnAverage(grade1, grade2, grade3, totalCredits)) + ".0");
 });
 
