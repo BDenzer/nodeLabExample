@@ -66,12 +66,11 @@ app.post('/gpaCalculator', function(req, res){
     var credits2 = parseInt(req.body.credits2);
     var credits3 = parseInt(req.body.credits3);
     var totalCredits = credits1 + credits2 + credits3;
-    console.log("total credits are " + totalCredits);
-    var grade1 = parseInt(tools.returnGradePoint(credits1, tools.returnGradeValue(req.body.grade1)));
-    var grade2 = parseInt(tools.returnGradePoint(credits2, tools.returnGradeValue(req.body.grade2)));
-    var grade3 = parseInt(tools.returnGradePoint(credits3.credits3, tools.returnGradeValue(req.body.grade3)));
-    console.log("grade1 is " + grade1);
-    res.send("Your GPA is: " + (tools.returnAverage(grade1, grade2, grade3, totalCredits)));
+    var grade1 = tools.returnGradePoint(credits1, tools.returnGradeValue(req.body.grade1));
+    var grade2 = tools.returnGradePoint(credits2, tools.returnGradeValue(req.body.grade2));
+    var grade3 = tools.returnGradePoint(credits3, tools.returnGradeValue(req.body.grade3));
+    console.log("grade1 is " + typeof(grade1));
+    if(totalCredits > 0 && totalCredits < 20) res.send("Your GPA is: " + (tools.returnAverage(grade1, grade2, grade3, totalCredits)) + ".0");
 });
 
 

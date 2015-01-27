@@ -9,9 +9,7 @@ exports.pageName = function(str){
 };
 
 exports.returnAverage = function(number1, number2, number3, totalCredits){
-    console.log("total credits is " + totalCredits);
-    return (number1+number2+number3)/totalCredits;
-
+    return (number1 + number2 + number3)/totalCredits;
 };
 
 exports.returnGradeValue = function(str){
